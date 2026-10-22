@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v4
       
       - name: Set up Java
-        uses: subosito/flutter-action@v2
+        uses: actions/setup-java@v3
         with:
           distribution: 'zulu'
           java-version: '17'
@@ -24,12 +24,14 @@ jobs:
           
       - name: Install dependencies
         run: flutter pub get
+        working-directory: companion_app
         
       - name: Build APK
         run: flutter build apk --release --target-platform android-arm,android-arm64,android-x64
+        working-directory: companion_app
         
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
           name: release-apk
-          path: build/app/outputs/flutter-apk/app-release.apk
+          path: companion_app/build/app/outputs/flutter-apk/app-release.apk
