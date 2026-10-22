@@ -1,0 +1,24 @@
+name: jarvis_companion
+description: Jarvis-AI mobile companion. Streams telemetry to the master laptop and executes remote commands on this device.
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  battery_plus: ^6.0.3
+  device_info_plus: ^11.1.0
+  web_socket_channel: ^3.0.1
+  http: ^1.2.2
+  shared_preferences: ^2.3.2
+
+dev_dependencies:
+  flutter_lints: ^4.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
